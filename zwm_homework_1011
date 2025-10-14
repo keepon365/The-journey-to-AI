@@ -1,0 +1,125 @@
+#include <stdio.h>
+
+
+long long factorial(int n){
+    long long result=1;
+    for (int i=n;i>0;i--){
+            result=result*i;
+        }
+    return result;
+}
+
+
+int main() {
+
+//作业1
+
+    unsigned char num = 0;
+    printf("输入一个数字以了解您的原神任务进度: \n");
+    scanf("%d", &num);
+
+    for (int i = 0; i < 8; i++) {
+        if (((num >> i) & 1)==1) {
+            switch (i) {
+                case 0:
+                    printf("one\n");
+                    break;
+                case 1:
+                    printf("two\n");
+                    break;
+                case 2:
+                    printf("three\n");
+                    break;
+                case 3:
+                    printf("four\n");
+                    break;
+                case 4:
+                    printf("five\n");
+                    break;
+                case 5:
+                    printf("six\n");
+                    break;
+                case 6:
+                    printf("seven\n");
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+
+    //测试代码是否正确
+    // for (int i=7 ; i>=0; i--) {
+    //     printf ("%d",(num>>i)&1);
+    // }
+    
+
+
+
+    // int i=0;
+    // int output_in_binary_progress[8] = {0};
+    // while (num > 0) {
+    //     int middle = num % 2;
+    //     output_in_binary_progress[i] = middle;
+    //     i++;
+    //     num = (num-num % 2)/2;
+    //     printf("%d\n", middle);
+    // } 
+    // for ( int i = 0; i < 8; i++) {
+    //     if (output_in_binary_progress[i] == 1) {
+    //         switch (i) {
+    //             case 0:
+    //                 printf("one\n");
+    //                 break; // 修正3：添加break避免穿透
+    //             case 1:
+    //                 printf("two\n");
+    //                 break;
+    //             case 2:
+    //                 printf("three\n");
+    //                 break;
+    //             case 3:
+    //                 printf("four\n");
+    //                 break;
+    //             case 4:
+    //                 printf("five\n");
+    //                 break;
+    //             case 5:
+    //                 printf("six\n");
+    //                 break;
+    //             case 6:
+    //                 printf("seven\n");
+    //                 break;
+    //             default:
+    //                 break;
+    //         }
+    //     }
+    // }
+
+
+
+
+
+
+
+
+
+    //作业2
+    //printf("楼梯的阶数为：%d\n",factorial(3));
+    int n;
+    long long result_part=0;
+    long long result=0;
+    
+    printf("请输入楼梯的阶数：\n");
+    scanf("%d",&n);
+    
+   
+        for (int x = n / 2, y; x >= 0; x--) {
+            y = n - 2 * x;
+            result_part = factorial(x + y) / (factorial(x) * factorial(y));
+            result = result + result_part;
+        }
+     printf("共有%lld种走法\n",result);
+    return 0;
+    
+}
